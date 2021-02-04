@@ -35,6 +35,27 @@ function twoNumberSum(array, targetSum) {
     return []
 }
 
+// version 3
+// time: O(nlogn) space: O(1)
+
+function twoNumberSum(array, targetSum) {
+    array.sort((a, b)=> a-b);
+    let left = 0;
+    let right = array.length-1;
+
+    while (left < right){
+        const currsum = array[left] + array[right];
+        if(currsum === targetSum){
+            return [array[left], array[right]]
+        }else if ( currsum < targetSum) {
+            left++
+        }else if (currsum > targetSum) {
+            right--
+        }
+    }
+    
+    return []
+}
 
 
 
